@@ -1,1 +1,30 @@
-
+// Simple simulated login using localStorage
+document.addEventListener('DOMContentLoaded', function(){
+  const loginForm = document.getElementById('login-form');
+  if(loginForm){
+    loginForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      if(email==='admin@truestudio.my.id' && pass==='1234'){
+        localStorage.setItem('ts-admin','true');
+        window.location.href = 'index.html';
+      } else {
+        alert('Login gagal — gunakan demo: admin@truestudio.my.id / 1234');
+      }
+    });
+  }
+  // protect dashboard pages
+  if(window.location.pathname.endsWith('/dashboard/index.html')){
+    if(!localStorage.getItem('ts-admin')){
+      window.location.href = 'login.html';
+    }
+  }
+  const logout = document.getElementById('logout');
+  if(logout){
+    logout.addEventListener('click', function(){
+      localStorage.removeItem('ts-admin');
+      window.location.href = '../index.html';
+    });
+  }
+});
