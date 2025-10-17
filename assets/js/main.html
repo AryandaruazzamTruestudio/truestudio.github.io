@@ -1,1 +1,25 @@
+// Theme toggle: remembers choice in localStorage
+(function(){
+  const root = document.documentElement;
+  const btns = document.querySelectorAll('#theme-toggle');
+  const saved = localStorage.getItem('ts-theme') || 'light';
+  setTheme(saved);
+  btns.forEach(b=>b && b.addEventListener('click', toggleTheme));
 
+  function setTheme(t){
+    if(t==='dark') root.setAttribute('data-theme','dark');
+    else root.removeAttribute('data-theme');
+    localStorage.setItem('ts-theme', t);
+    updateButtons();
+  }
+  function toggleTheme(){
+    const cur = document.documentElement.getAttribute('data-theme')==='dark' ? 'dark' : 'light';
+    setTheme(cur==='dark' ? 'light' : 'dark');
+  }
+  function updateButtons(){
+    btns.forEach(b=>{
+      if(!b) return;
+      b.textContent = document.documentElement.getAttribute('data-theme')==='dark' ? 'Terang' : 'Gelap';
+    });
+  }
+})();
