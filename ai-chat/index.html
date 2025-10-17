@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Chat — TrueStudio</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">TrueStudio</h1>
+      <nav class="nav">
+        <a href="../index.html">Beranda</a>
+        <a href="../about.html">Tentang</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../shop/index.html">Marketplace</a>
+        <a href="index.html">AI Chat</a>
+        <a href="../contact.html">Kontak</a>
+        <a class="btn small" href="../dashboard/login.html">Admin</a>
+        <button id="theme-toggle" class="btn small">Mode</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>AI Chat (Simulasi)</h2>
+    <div id="chatbox" class="chatbox">
+      <div class="msg bot">Halo! Saya asisten TrueStudio. (simulasi)</div>
+    </div>
+    <form id="chat-form">
+      <input id="chat-input" placeholder="Ketik pertanyaan..." autocomplete="off" />
+      <button class="btn" type="submit">Kirim</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 TrueStudio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  document.getElementById('chat-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const v = document.getElementById('chat-input').value.trim();
+    if(!v) return;
+    const box = document.getElementById('chatbox');
+    const userMsg = document.createElement('div'); userMsg.className='msg user'; userMsg.textContent = v;
+    box.appendChild(userMsg);
+    document.getElementById('chat-input').value='';
+    // simulated bot reply
+    setTimeout(()=> {
+      const bot = document.createElement('div'); bot.className='msg bot';
+      bot.textContent = 'Ini balasan simulasi untuk: ' + v;
+      box.appendChild(bot);
+      box.scrollTop = box.scrollHeight;
+    }, 700);
+  });
+  </script>
+</body>
+</html>
