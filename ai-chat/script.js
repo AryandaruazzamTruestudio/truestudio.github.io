@@ -1,53 +1,48 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #0d0d0d;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+const API_KEY = "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"; // <--- Ganti dengan API key OpenAI kamu
+
+const sendBtn = document.getElementById("send-btn");
+const userInput = document.getElementById("user-input");
+const chatBox = document.getElementById("chat-box");
+
+sendBtn.addEventListener("click", sendMessage);
+
+async function sendMessage() {
+  const userText = userInput.value.trim();
+  if (!userText) return;
+
+  addMessage("user", userText);
+  userInput.value = "";
+
+  addMessage("ai", "Mengetik...");
+
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${API_KEY}`
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: userText }]
+    })
+  });
+
+  const data = await response.json();
+  const aiReply = data.choices?.[0]?.message?.content || "Maaf, terjadi kesalahan.";
+  updateLastAIMessage(aiReply);
 }
 
-.chat-container {
-  width: 90%;
-  max-width: 500px;
-  background: #1a1a1a;
-  border-radius: 15px;
-  box-shadow: 0 0 20px #7b4eff;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+function addMessage(sender, text) {
+  const msg = document.createElement("div");
+  msg.classList.add("message", sender);
+  msg.innerText = text;
+  chatBox.appendChild(msg);
+  chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-.chat-box {
-  flex-grow: 1;
-  padding: 15px;
-  overflow-y: auto;
-  height: 400px;
-}
-
-.input-container {
-  display: flex;
-  padding: 10px;
-  background: #111;
-}
-
-#user-input {
-  flex-grow: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  margin-right: 8px;
-  outline: none;
-  background: #222;
-  color: #fff;
-}
-
-#send-btn {
-  padding: 10px 15px;
-  background: #7b4eff;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
+function updateLastAIMessage(text) {
+  const aiMsgs = document.querySelectorAll(".message.ai");
+  if (aiMsgs.length > 0) {
+    aiMsgs[aiMsgs.length - 1].innerText = text;
+  }
 }
