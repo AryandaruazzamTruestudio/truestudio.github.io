@@ -1,10 +1,20 @@
 const API_KEY = "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"; // <--- Ganti dengan API key OpenAI kamu
 
+
+
 const sendBtn = document.getElementById("send-btn");
 const userInput = document.getElementById("user-input");
 const chatBox = document.getElementById("chat-box");
 
 sendBtn.addEventListener("click", sendMessage);
+
+// ⬇️ Tambahan agar tombol Enter bisa kirim pesan
+userInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    sendMessage();
+  }
+});
 
 async function sendMessage() {
   const userText = userInput.value.trim();
