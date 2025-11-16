@@ -1,55 +1,153 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kontak — TrueStudio</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script defer src="assets/js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact EcoGreen</title>
+
+    <!-- Font Awesome (ICON) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: #f9f3ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #caa5ff;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #7a4bff;
+            font-weight: bold;
+        }
+
+        .info {
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: #b889ff;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #a070ff;
+        }
+
+        .btn i {
+            font-size: 18px;
+        }
+    </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <h1 class="brand">TrueStudio</h1>
-      <nav class="nav">
-        <a href="index.html">Beranda</a>
-        <a href="about.html">Tentang</a>
-        <a href="blog/index.html">Blog</a>
-        <a href="shop/index.html">Marketplace</a>
-        <a href="ai-chat/index.html">AI Chat</a>
-        <a href="contact.html">Kontak</a>
-        <a class="btn small" href="dashboard/login.html">Admin</a>
-        <button id="theme-toggle" class="btn small">Mode</button>
-      </nav>
-    </div>
-  </header>
 
-  <main class="container">
-    <section>
-      <h2>Hubungi Kami</h2>
-      <p>Email: <a href="mailto:admin@truestudio.my.id">admin@truestudio.my.id</a></p>
-      <form id="contact-form">
-        <label>Nama<br><input type="text" name="name" required></label><br>
-        <label>Email<br><input type="email" name="email" required></label><br>
-        <label>Pesan<br><textarea name="message" rows="4" required></textarea></label><br>
-        <button class="btn" type="submit">Kirim (simulasi)</button>
-      </form>
-      <p class="muted">Form ini hanya simulasi — data tidak disimpan di server (GitHub Pages).</p>
-    </section>
-  </main>
+    <header>Contact EcoGreen</header>
 
-  <footer class="site-footer">
     <div class="container">
-      <p>© 2025 TrueStudio. All rights reserved.</p>
-    </div>
-  </footer>
 
-  <script>
-  document.getElementById('contact-form').addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Terima kasih! Pesan Anda sudah terkirim (simulasi).');
-    this.reset();
-  });
-  </script>
+        <!-- WhatsApp -->
+        <div class="contact-box">
+            <div class="title">WhatsApp</div>
+            <div class="info">Klik tombol untuk chat langsung.</div>
+            <a href="https://wa.me/6285137751521" target="_blank" class="btn">
+                <i class="fab fa-whatsapp"></i> Chat WhatsApp
+            </a>
+        </div>
+
+        <!-- Instagram -->
+        <div class="contact-box">
+            <div class="title">Instagram</div>
+            <div class="info">Kunjungi Instagram resmi kami.</div>
+            <a href="https://instagram.com/username" target="_blank" class="btn">
+                <i class="fab fa-instagram"></i> Buka Instagram
+            </a>
+        </div>
+
+        <!-- YouTube -->
+        <div class="contact-box">
+            <div class="title">YouTube</div>
+            <div class="info">Lihat video dan konten terbaru kami.</div>
+            <a href="https://youtube.com/@username" target="_blank" class="btn">
+                <i class="fab fa-youtube"></i> Kunjungi YouTube
+            </a>
+        </div>
+
+        <!-- TikTok -->
+        <div class="contact-box">
+            <div class="title">TikTok</div>
+            <div class="info">Tonton konten pendek dan edukasi green lifestyle.</div>
+            <a href="https://tiktok.com/@username" target="_blank" class="btn">
+                <i class="fab fa-tiktok"></i> Buka TikTok
+            </a>
+        </div>
+
+        <!-- Facebook -->
+        <div class="contact-box">
+            <div class="title">Facebook</div>
+            <div class="info">Ikuti halaman Facebook kami.</div>
+            <a href="https://facebook.com/username" target="_blank" class="btn">
+                <i class="fab fa-facebook"></i> Buka Facebook
+            </a>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-box">
+            <div class="title">Email</div>
+            <div class="info">Hubungi kami melalui email resmi.</div>
+            <a href="mailto:ecogreen@example.com" class="btn">
+                <i class="fas fa-envelope"></i> Kirim Email
+            </a>
+        </div>
+
+        <!-- Website -->
+        <div class="contact-box">
+            <div class="title">Website Resmi</div>
+            <div class="info">Kunjungi website EcoGreen.</div>
+            <a href="https://example.com" target="_blank" class="btn">
+                <i class="fas fa-globe"></i> Kunjungi Website
+            </a>
+        </div>
+
+    </div>
+
 </body>
 </html>
