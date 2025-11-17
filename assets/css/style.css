@@ -1,6 +1,6 @@
 :root{
   --bg:#ffffff; --text:#0b0b0b; --muted:#666;
-  --accent:#0b84ff; --card:#f6f8fb; --header:#ffffff;
+  --accent:#0b84ff; --card:#f6f8fb; --header:##1ff02d;
 }
 [data-theme="dark"]{
   --bg:#071428; --text:#e6eef8; --muted:#9fb3d0;
